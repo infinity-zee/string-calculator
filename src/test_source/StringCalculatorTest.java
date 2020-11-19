@@ -18,6 +18,11 @@ public class StringCalculatorTest {
 
         //Test 3: Two values input
         assertEquals(5, calc.Add("2,3"));
+
+        //Test 4: Unknown amount of numbers
+        assertEquals(10, calc.Add("4,2,3,1"));
+        assertEquals(15, calc.Add("3,3,2,7"));
+
     }
 
 
