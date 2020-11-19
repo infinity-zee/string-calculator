@@ -4,7 +4,7 @@ public class StringCalculator {
     public int Add(String numbers) {
         int sum;
 
-        char[] arrayOfNumbers = numbers.replaceAll(",", "").toCharArray();
+        char[] arrayOfNumbers = (numbers.replaceAll(",", "")).replaceAll("\\n", "").toCharArray();
         sum = calculateSum(arrayOfNumbers);
 
         return sum;
