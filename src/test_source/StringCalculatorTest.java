@@ -23,6 +23,10 @@ public class StringCalculatorTest {
         assertEquals(10, calc.Add("4,2,3,1"));
         assertEquals(15, calc.Add("3,3,2,7"));
 
+        //Test 5: Handling newlines along with comma as delimiter
+        assertEquals(6, calc.Add("2\n4"));
+        assertEquals(21, calc.Add("6,12\n1,2"));
+
     }
 
 
