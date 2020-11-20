@@ -11,13 +11,8 @@ public class StringCalculator {
         count++;
         int sum;
         String delimiter;
-        if (numbers.startsWith("//")) {
-            delimiter = "/" + numbers.charAt(2);
-        }
-        else {
-            delimiter = ",";
-        }
-        String[] arrayOfNumbers = numbers.split("[" + Pattern.quote(delimiter) + "\\n]", 0);
+
+        String[] arrayOfNumbers = extractArrayOfNumbers(numbers);
         try {
             sum = calculateSum(arrayOfNumbers);
         } catch (NegativeNumberException e) {
@@ -25,6 +20,27 @@ public class StringCalculator {
         }
 
         return sum;
+    }
+
+    private String[] extractArrayOfNumbers(String numbers) {
+        String[] arrayOfNumbers;
+
+        if (numbers.length() != 0 && numbers.charAt(0) == '/') {
+
+            numbers = numbers.replaceAll("/", "");
+            String[] temp = numbers.split("[\\n]", 0);
+            temp[0] = temp[0].replaceAll("\\[", "(");
+            temp[0] = temp[0].replaceAll("]", ")");
+
+
+            arrayOfNumbers = temp[1].split("[" + temp[0] + ",\n]" , 0);
+        }
+        else {
+            arrayOfNumbers = numbers.split("[,\n]", 0);
+        }
+
+
+        return arrayOfNumbers;
     }
 
     private int calculateSum(String[] numbers) throws NegativeNumberException {
