@@ -4,7 +4,11 @@ import java.util.regex.Pattern;
 import app.NegativeNumberException;
 
 public class StringCalculator {
+
+    private static int count = 0;
+
     public int Add(String numbers) throws NegativeNumberException{
+        count++;
         int sum;
         String delimiter;
         if (numbers.startsWith("//")) {
@@ -45,5 +49,9 @@ public class StringCalculator {
             throw e;
         }
         return sum;
+    }
+
+    public static int GetCalledCount() {
+        return count;
     }
 }
