@@ -38,7 +38,9 @@ public class StringCalculator {
                     if (num < 0) {
                         temp[index++] = num;
                     }
-                    sum += num;
+                    else if (num < 1000) {
+                        sum += num;
+                    }
                 }
             }
 
