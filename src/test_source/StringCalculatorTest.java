@@ -50,6 +50,9 @@ public class StringCalculatorTest {
             //Test 10: Test case for the GetCalledCount() method
             assertEquals(12, StringCalculator.GetCalledCount());
 
+            //Test 11: Test case with value greater than 1000
+            assertEquals(40, calc.Add("12,8,1020,20"));
+
         } catch (NegativeNumberException e) {
 
         }
