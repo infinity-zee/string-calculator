@@ -1,10 +1,18 @@
 package app;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
     public int Add(String numbers) {
         int sum;
-
-        String[] arrayOfNumbers = numbers.split("[,\\n]", 0);
+        String delimiter;
+        if (numbers.startsWith("//")) {
+            delimiter = "/" + numbers.charAt(2);
+        }
+        else {
+            delimiter = ",";
+        }
+        String[] arrayOfNumbers = numbers.split("[" + Pattern.quote(delimiter) + "\\n]", 0);
         sum = calculateSum(arrayOfNumbers);
 
         return sum;
