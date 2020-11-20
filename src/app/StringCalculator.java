@@ -24,17 +24,22 @@ public class StringCalculator {
     }
 
     private int calculateSum(String[] numbers) throws NegativeNumberException {
-        int sum = 0;
+        int sum = 0, index = 0;
         int num;
+        int[] temp = new int[numbers.length];
         try {
             for(String st : numbers) {
                 if (!st.equals("")) {
                     num = Integer.parseInt(st);
                     if (num < 0) {
-                        throw new NegativeNumberException(num);
+                        temp[index++] = num;
                     }
                     sum += num;
                 }
+            }
+
+            if (temp[0] < 0) {
+                throw new NegativeNumberException(temp);
             }
         } catch (NegativeNumberException e) {
             throw e;

@@ -65,9 +65,9 @@ public class StringCalculatorTest {
     @Test
     public void testMultipleNegativeNumberException() {
         try {
-            calc.Add("//$\n4$-2$5-1$-6$12");
+            calc.Add("//$\n4$-2$5$-1$-6$12");
         } catch (NegativeNumberException e) {
-            assertEquals("Negative not allowed: -2, -1, -6", e.getMessage());
+            assertEquals("Negatives not allowed: -2, -1, -6", e.getMessage());
         }
     }
 }
