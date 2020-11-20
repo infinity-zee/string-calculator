@@ -4,16 +4,18 @@ public class StringCalculator {
     public int Add(String numbers) {
         int sum;
 
-        char[] arrayOfNumbers = numbers.replaceAll("[,\\n]", "").toCharArray();
+        String[] arrayOfNumbers = numbers.split("[,\\n]", 0);
         sum = calculateSum(arrayOfNumbers);
 
         return sum;
     }
 
-    private int calculateSum(char[] numbers) {
+    private int calculateSum(String[] numbers) {
         int sum = 0;
-        for(char ch : numbers) {
-            sum += Character.getNumericValue(ch);
+        for(String st : numbers) {
+            if (!st.equals("")) {
+                sum += Integer.parseInt(st);
+            }
         }
         return sum;
     }

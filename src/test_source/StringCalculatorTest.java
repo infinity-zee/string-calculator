@@ -27,6 +27,9 @@ public class StringCalculatorTest {
         assertEquals(6, calc.Add("2\n4"));
         assertEquals(18, calc.Add("6,9\n1,2"));
 
+        //Test 6: Test case for values having more than 1 digit
+        assertEquals(25, calc.Add("10,12\n3"));
+
     }
 
 
