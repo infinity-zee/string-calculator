@@ -59,6 +59,9 @@ public class StringCalculatorTest {
             //Test 13: Test case for multiple unique delimiters
             assertEquals(6, calc.Add("//[*][%]\n1*2%3"));
 
+            //Test 14: Test case for multiple variable length delimiters
+            assertEquals(6, calc.Add("//[**][%%]\n1**2%%3"));
+
         } catch (NegativeNumberException e) {
 
         }
