@@ -53,6 +53,9 @@ public class StringCalculatorTest {
             //Test 11: Test case with value greater than 1000
             assertEquals(40, calc.Add("12,8,1020,20"));
 
+            //Test 12: Test case for delimiters of variable length
+            assertEquals(12, calc.Add("//[^^^]\n2^^^5^^^4^^^1"));
+
         } catch (NegativeNumberException e) {
 
         }
