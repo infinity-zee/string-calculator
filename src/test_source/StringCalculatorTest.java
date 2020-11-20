@@ -30,6 +30,10 @@ public class StringCalculatorTest {
         //Test 6: Test case for values having more than 1 digit
         assertEquals(25, calc.Add("10,12\n3"));
 
+        //Test 7: Test case for different delimiters
+        assertEquals(3, calc.Add("//;\n1;2"));
+        assertEquals(15, calc.Add("//-\n3-2-10"));
+
     }
 
 
