@@ -8,9 +8,7 @@ public class StringCalculator {
     private static int count = 0;
 
     public int Add(String numbers) throws NegativeNumberException{
-        count++;
         int sum;
-        String delimiter;
 
         String[] arrayOfNumbers = extractArrayOfNumbers(numbers);
         try {
