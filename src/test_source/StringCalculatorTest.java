@@ -56,6 +56,9 @@ public class StringCalculatorTest {
             //Test 12: Test case for delimiters of variable length
             assertEquals(12, calc.Add("//[^^^]\n2^^^5^^^4^^^1"));
 
+            //Test 13: Test case for multiple unique delimiters
+            assertEquals(6, calc.Add("//[*][%]\n1*2%3"));
+
         } catch (NegativeNumberException e) {
 
         }
