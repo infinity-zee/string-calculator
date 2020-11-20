@@ -1,5 +1,6 @@
 package test_source;
 
+import app.NegativeNumberException;
 import org.junit.*;
 
 import app.StringCalculator;
@@ -34,7 +35,15 @@ public class StringCalculatorTest {
         assertEquals(3, calc.Add("//;\n1;2"));
         assertEquals(15, calc.Add("//-\n3-2-10"));
 
+        //Test 8: Test case for negative numbers throwing exception
     }
 
+    public void testNegativeNumberException(StringCalculator calc) {
+        try {
+            calc.Add("//*4*-2*3");
+        } catch(NegativeNumberException e) {
+            assertEquals("-2", e.getMessage());
+        }
+    }
 
 }
