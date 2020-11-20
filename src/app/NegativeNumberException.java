@@ -6,6 +6,6 @@ public class NegativeNumberException extends Throwable {
         val = numThrown;
     }
     public String getMessage() {
-        return String.valueOf(val);
+        return "Negatives not allowed: " + val;
     }
 }
