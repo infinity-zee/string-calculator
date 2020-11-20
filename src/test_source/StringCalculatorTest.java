@@ -47,9 +47,14 @@ public class StringCalculatorTest {
             //Test 9: Test for multiple negative numbers throwing exception
             sct.testMultipleNegativeNumberException();
 
+            //Test 10: Test case for the GetCalledCount() method
+            assertEquals(12, StringCalculator.GetCalledCount());
+
         } catch (NegativeNumberException e) {
 
         }
+
+
 
     }
 
