@@ -8,8 +8,12 @@ import app.StringCalculator;
 import static org.junit.Assert.assertEquals;
 
 public class StringCalculatorTest {
+
+    public static StringCalculator calc;
+
     public static void test() {
-        StringCalculator calc = new StringCalculator();
+        calc = new StringCalculator();
+        var sct = new StringCalculatorTest();
 
         try {
 
@@ -38,8 +42,11 @@ public class StringCalculatorTest {
             assertEquals(15, calc.Add("//-\n3-2-10"));
 
             //Test 8: Test case for negative numbers throwing exception
-            var sct = new StringCalculatorTest();
             sct.testNegativeNumberException();
+
+            //Test 9: Test for multiple negative numbers throwing exception
+            sct.testMultipleNegativeNumberException();
+
         } catch (NegativeNumberException e) {
 
         }
@@ -49,11 +56,18 @@ public class StringCalculatorTest {
     @Test
     public void testNegativeNumberException() {
         try {
-            var calc = new StringCalculator();
-            calc.Add("//*4*-2*3");
+            calc.Add("//*\n4*-2*3");
         } catch(NegativeNumberException e) {
             assertEquals("Negatives not allowed: -2", e.getMessage());
         }
     }
 
+    @Test
+    public void testMultipleNegativeNumberException() {
+        try {
+            calc.Add("//$\n4$-2$5-1$-6$12");
+        } catch (NegativeNumberException e) {
+            assertEquals("Negative not allowed: -2, -1, -6", e.getMessage());
+        }
+    }
 }
